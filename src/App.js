@@ -2,7 +2,26 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
 function App() {
+  const axios = require('axios');
+
+  axios.get('https://yts.am/api/v2/list_movies.json')
+  .then(function (response) {
+    // handle success
+    response.data.data.movies.forEach(m => {
+      console.log(m.title)
+    })
+    console.log(response.data.data.movies);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
   return (
     <div className="App">
       <header className="App-header">
