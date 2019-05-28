@@ -1,6 +1,8 @@
 import React from 'react';
 import service from '../../services/MyCinemaService'
 import Card from '../../components/Card'
+import styles from './styles.css'
+
 class MovieList extends React.Component{
   constructor() {
     super();
@@ -23,7 +25,7 @@ class MovieList extends React.Component{
     const { list } = this.state
     return(
       <div className="list">
-        <div className="row">
+        <div className="movies">
         {
           list.map( (item, index) => <Card key={item.id} {...item}/>)
         }
